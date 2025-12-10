@@ -15,7 +15,7 @@ export function Header() {
 
         <nav className="flex items-center gap-6">
           <Link
-            to="/cafes"
+            to="/pc-cafes"
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
             PC Cafés
