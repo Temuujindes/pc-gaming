@@ -245,7 +245,7 @@ export function BookingModal({ isOpen, onClose, cafe }: BookingModalProps) {
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Time:</span>
                   <span className="font-medium">
-                    {selectedStartTime} - {parseInt(selectedStartTime) + parseInt(selectedDuration)}:00
+                    {selectedStartTime} - {String(parseInt(selectedStartTime.split(':')[0]) + parseInt(selectedDuration)).padStart(2, '0')}:00
                   </span>
                 </div>
                 <div className="flex justify-between">

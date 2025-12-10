@@ -8,7 +8,6 @@ import {
   MapPin,
   Star,
   Search,
-  ChevronDown,
 } from "lucide-react";
 import { BookingModal } from "@/components/BookingModal";
 
