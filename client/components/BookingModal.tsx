@@ -75,7 +75,7 @@ export function BookingModal({ isOpen, onClose, cafe }: BookingModalProps) {
 
   const togglePC = (pcId: string) => {
     setSelectedPCs((prev) =>
-      prev.includes(pcId) ? prev.filter((id) => id !== pcId) : [...prev, pcId]
+      prev.includes(pcId) ? prev.filter((id) => id !== pcId) : [...prev, pcId],
     );
   };
 
@@ -92,9 +92,7 @@ export function BookingModal({ isOpen, onClose, cafe }: BookingModalProps) {
             <div key={s} className="flex-1">
               <div
                 className={`h-2 rounded-full transition-colors ${
-                  s <= step
-                    ? "bg-primary"
-                    : "bg-muted"
+                  s <= step ? "bg-primary" : "bg-muted"
                 }`}
               />
               <p className="text-xs text-muted-foreground text-center mt-1">
@@ -196,7 +194,8 @@ export function BookingModal({ isOpen, onClose, cafe }: BookingModalProps) {
             <div className="space-y-4">
               <h3 className="font-semibold text-lg">Select PCs</h3>
               <p className="text-sm text-muted-foreground">
-                Choose which PCs you want to book ({selectedPCs.length} selected)
+                Choose which PCs you want to book ({selectedPCs.length}{" "}
+                selected)
               </p>
               <div className="grid grid-cols-2 gap-3 max-h-64 overflow-y-auto">
                 {mockPCs.map((pc) => (
@@ -245,7 +244,12 @@ export function BookingModal({ isOpen, onClose, cafe }: BookingModalProps) {
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Time:</span>
                   <span className="font-medium">
-                    {selectedStartTime} - {String(parseInt(selectedStartTime.split(':')[0]) + parseInt(selectedDuration)).padStart(2, '0')}:00
+                    {selectedStartTime} -{" "}
+                    {String(
+                      parseInt(selectedStartTime.split(":")[0]) +
+                        parseInt(selectedDuration),
+                    ).padStart(2, "0")}
+                    :00
                   </span>
                 </div>
                 <div className="flex justify-between">
@@ -254,7 +258,9 @@ export function BookingModal({ isOpen, onClose, cafe }: BookingModalProps) {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">PCs Selected:</span>
-                  <span className="font-medium">{selectedPCs.length} PC(s)</span>
+                  <span className="font-medium">
+                    {selectedPCs.length} PC(s)
+                  </span>
                 </div>
                 <div className="border-t border-border pt-3 flex justify-between">
                   <span className="font-semibold">Total Price:</span>
@@ -264,7 +270,8 @@ export function BookingModal({ isOpen, onClose, cafe }: BookingModalProps) {
                 </div>
               </div>
               <p className="text-xs text-muted-foreground text-center">
-                {cafe.hourlyRate} × {selectedDuration}h × {selectedPCs.length} PC(s)
+                {cafe.hourlyRate} × {selectedDuration}h × {selectedPCs.length}{" "}
+                PC(s)
               </p>
             </div>
           )}
@@ -288,7 +295,10 @@ export function BookingModal({ isOpen, onClose, cafe }: BookingModalProps) {
               <ChevronRight className="h-4 w-4" />
             </Button>
           ) : (
-            <Button onClick={handleConfirm} className="gap-2 bg-green-600 hover:bg-green-700">
+            <Button
+              onClick={handleConfirm}
+              className="gap-2 bg-green-600 hover:bg-green-700"
+            >
               <CheckCircle className="h-4 w-4" />
               Confirm Booking
             </Button>

@@ -3,14 +3,7 @@ import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Search,
-  MapPin,
-  Users,
-  Zap,
-  Star,
-  ChevronRight,
-} from "lucide-react";
+import { Search, MapPin, Users, Zap, Star, ChevronRight } from "lucide-react";
 
 interface Cafe {
   id: string;
@@ -44,7 +37,8 @@ const mockCafes: Cafe[] = [
     id: "2",
     name: "Cyber Den",
     location: "Peace Avenue",
-    description: "Modern internet cafe with latest hardware and comfortable seating",
+    description:
+      "Modern internet cafe with latest hardware and comfortable seating",
     image:
       "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=500&h=300&fit=crop",
     rating: 4.5,
@@ -118,7 +112,7 @@ export default function Index() {
       (cafe) =>
         cafe.name.toLowerCase().includes(query.toLowerCase()) ||
         cafe.location.toLowerCase().includes(query.toLowerCase()) ||
-        cafe.description.toLowerCase().includes(query.toLowerCase())
+        cafe.description.toLowerCase().includes(query.toLowerCase()),
     );
     setFilteredCafes(filtered);
   };
@@ -137,7 +131,8 @@ export default function Index() {
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
-            Book Your Perfect <span className="text-primary">Gaming Station</span>
+            Book Your Perfect{" "}
+            <span className="text-primary">Gaming Station</span>
           </h1>
           <p className="text-lg text-muted-foreground">
             Discover premium PC cafés, check real-time availability, and book
@@ -223,7 +218,9 @@ export default function Index() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                     <div className="absolute top-3 right-3 flex items-center gap-1 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
                       <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      <span className="text-sm font-semibold">{cafe.rating}</span>
+                      <span className="text-sm font-semibold">
+                        {cafe.rating}
+                      </span>
                     </div>
                   </div>
 
@@ -273,7 +270,11 @@ export default function Index() {
                           {cafe.availability}
                         </span>
                       </div>
-                      <Button variant="ghost" size="sm" className="text-primary hover:text-primary">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-primary hover:text-primary"
+                      >
                         <ChevronRight className="h-4 w-4" />
                       </Button>
                     </div>
@@ -289,9 +290,7 @@ export default function Index() {
       <section className="border-t border-border bg-gradient-to-r from-primary/10 to-accent/10">
         <div className="container py-12 sm:py-16">
           <div className="max-w-2xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl sm:text-4xl font-bold">
-              Own a PC Café?
-            </h2>
+            <h2 className="text-3xl sm:text-4xl font-bold">Own a PC Café?</h2>
             <p className="text-lg text-muted-foreground">
               Join thousands of café owners managing their inventory and
               bookings on PCafé Hub. Start free today.
@@ -312,12 +311,18 @@ export default function Index() {
               <h4 className="font-semibold mb-4">About</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
                     Blog
                   </a>
                 </li>
@@ -327,12 +332,18 @@ export default function Index() {
               <h4 className="font-semibold mb-4">For Users</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
                     Book Now
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
                     My Bookings
                   </a>
                 </li>
@@ -342,12 +353,18 @@ export default function Index() {
               <h4 className="font-semibold mb-4">For Partners</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
                     Partner With Us
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
                     Admin Dashboard
                   </a>
                 </li>
@@ -357,12 +374,18 @@ export default function Index() {
               <h4 className="font-semibold mb-4">Legal</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
                     Privacy
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-foreground transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
                     Terms
                   </a>
                 </li>

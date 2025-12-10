@@ -33,14 +33,14 @@ export function ReservationForm({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.date || !formData.startTime || !formData.duration) {
       toast.error("Please fill in all fields");
       return;
     }
 
     toast.success(
-      `Reservation created for PC #${pcNumber} at ${caféName} on ${formData.date}`
+      `Reservation created for PC #${pcNumber} at ${caféName} on ${formData.date}`,
     );
     onClose();
     setFormData({

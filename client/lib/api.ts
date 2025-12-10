@@ -11,7 +11,7 @@ class ApiClient {
 
   private async request<T>(
     endpoint: string,
-    options?: RequestInit
+    options?: RequestInit,
   ): Promise<T> {
     const url = `${this.baseUrl}${endpoint}`;
     const response = await fetch(url, {
@@ -38,17 +38,16 @@ class ApiClient {
     return this.request(`/rooms/${id}`);
   }
 
-  async createRoom(data: Omit<Room, "id" | "createdAt" | "updatedAt">): Promise<Room> {
+  async createRoom(
+    data: Omit<Room, "id" | "createdAt" | "updatedAt">,
+  ): Promise<Room> {
     return this.request("/rooms", {
       method: "POST",
       body: JSON.stringify(data),
     });
   }
 
-  async updateRoom(
-    id: string,
-    data: Partial<Room>
-  ): Promise<Room> {
+  async updateRoom(id: string, data: Partial<Room>): Promise<Room> {
     return this.request(`/rooms/${id}`, {
       method: "PUT",
       body: JSON.stringify(data),
@@ -72,7 +71,9 @@ class ApiClient {
     return this.request(`/pcs?roomId=${roomId}`);
   }
 
-  async createPC(data: Omit<PC, "id" | "createdAt" | "updatedAt">): Promise<PC> {
+  async createPC(
+    data: Omit<PC, "id" | "createdAt" | "updatedAt">,
+  ): Promise<PC> {
     return this.request("/pcs", {
       method: "POST",
       body: JSON.stringify(data),
@@ -92,7 +93,7 @@ class ApiClient {
 
   // Reservations
   async createReservation(
-    data: Omit<Reservation, "id" | "createdAt" | "updatedAt">
+    data: Omit<Reservation, "id" | "createdAt" | "updatedAt">,
   ): Promise<Reservation> {
     return this.request("/reservations", {
       method: "POST",
@@ -111,7 +112,7 @@ class ApiClient {
   async checkAvailability(
     pcId: string,
     startTime: string,
-    endTime: string
+    endTime: string,
   ): Promise<{ available: boolean }> {
     return this.request("/reservations/check-availability", {
       method: "POST",
@@ -121,7 +122,7 @@ class ApiClient {
 
   // Ratings
   async createRating(
-    data: Omit<Rating, "id" | "createdAt" | "updatedAt">
+    data: Omit<Rating, "id" | "createdAt" | "updatedAt">,
   ): Promise<Rating> {
     return this.request("/ratings", {
       method: "POST",
@@ -133,13 +134,15 @@ class ApiClient {
     return this.request(`/ratings/pc/${pcId}`);
   }
 
-  async getPCAverageRating(pcId: string): Promise<{ average: number; count: number }> {
+  async getPCAverageRating(
+    pcId: string,
+  ): Promise<{ average: number; count: number }> {
     return this.request(`/ratings/pc/${pcId}/average`);
   }
 
   // Reports
   async createReport(
-    data: Omit<Report, "id" | "createdAt" | "updatedAt">
+    data: Omit<Report, "id" | "createdAt" | "updatedAt">,
   ): Promise<Report> {
     return this.request("/reports", {
       method: "POST",
@@ -159,7 +162,10 @@ class ApiClient {
   }
 
   // Auth
-  async login(username: string, password: string): Promise<{ token: string; user: User }> {
+  async login(
+    username: string,
+    password: string,
+  ): Promise<{ token: string; user: User }> {
     return this.request("/auth/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),

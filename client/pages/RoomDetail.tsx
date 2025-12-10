@@ -136,8 +136,9 @@ export default function RoomDetail() {
   const { roomId } = useParams();
   const [room] = useState(mockRoom);
 
-  const availableCount = room.pcs.filter((pc) => pc.status === "available")
-    .length;
+  const availableCount = room.pcs.filter(
+    (pc) => pc.status === "available",
+  ).length;
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -204,7 +205,9 @@ export default function RoomDetail() {
                     <div className="text-2xl font-bold text-primary">
                       12:00 - 22:00
                     </div>
-                    <p className="text-xs text-muted-foreground">Operating Hours</p>
+                    <p className="text-xs text-muted-foreground">
+                      Operating Hours
+                    </p>
                   </div>
                 </div>
               </div>

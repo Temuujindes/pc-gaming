@@ -75,7 +75,7 @@ const PCSchema = new Schema<IPC>(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 export const PC = mongoose.model<IPC>("PC", PCSchema);

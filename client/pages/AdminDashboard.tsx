@@ -20,11 +20,23 @@ interface DashboardTab {
 }
 
 const tabs: DashboardTab[] = [
-  { id: "overview", label: "Overview", icon: <TrendingUp className="h-4 w-4" /> },
+  {
+    id: "overview",
+    label: "Overview",
+    icon: <TrendingUp className="h-4 w-4" />,
+  },
   { id: "rooms", label: "Rooms", icon: <LayoutGrid className="h-4 w-4" /> },
   { id: "pcs", label: "PCs", icon: <Monitor className="h-4 w-4" /> },
-  { id: "reservations", label: "Reservations", icon: <Users className="h-4 w-4" /> },
-  { id: "reports", label: "Reports", icon: <AlertCircle className="h-4 w-4" /> },
+  {
+    id: "reservations",
+    label: "Reservations",
+    icon: <Users className="h-4 w-4" />,
+  },
+  {
+    id: "reports",
+    label: "Reports",
+    icon: <AlertCircle className="h-4 w-4" />,
+  },
 ];
 
 export default function AdminDashboard() {
@@ -59,9 +71,13 @@ export default function AdminDashboard() {
             >
               <p className="text-sm text-muted-foreground">{stat.label}</p>
               <div className="mt-2 flex items-baseline justify-between">
-                <div className="text-3xl font-bold text-primary">{stat.value}</div>
+                <div className="text-3xl font-bold text-primary">
+                  {stat.value}
+                </div>
               </div>
-              <p className="text-xs text-muted-foreground mt-2">{stat.change}</p>
+              <p className="text-xs text-muted-foreground mt-2">
+                {stat.change}
+              </p>
             </div>
           ))}
         </div>
@@ -99,11 +115,17 @@ export default function AdminDashboard() {
                       <Plus className="h-4 w-4" />
                       Add New Room
                     </Button>
-                    <Button variant="outline" className="w-full justify-start gap-2">
+                    <Button
+                      variant="outline"
+                      className="w-full justify-start gap-2"
+                    >
                       <Plus className="h-4 w-4" />
                       Add New PC
                     </Button>
-                    <Button variant="outline" className="w-full justify-start gap-2">
+                    <Button
+                      variant="outline"
+                      className="w-full justify-start gap-2"
+                    >
                       <Settings className="h-4 w-4" />
                       Settings
                     </Button>
@@ -112,7 +134,9 @@ export default function AdminDashboard() {
 
                 {/* Recent Activity */}
                 <div className="bg-white rounded-xl border border-border p-6">
-                  <h3 className="text-lg font-semibold mb-4">Recent Activity</h3>
+                  <h3 className="text-lg font-semibold mb-4">
+                    Recent Activity
+                  </h3>
                   <div className="space-y-4">
                     <div className="flex items-center justify-between pb-4 border-b border-border">
                       <div>
@@ -191,7 +215,7 @@ export default function AdminDashboard() {
                         <ChevronRight className="h-4 w-4" />
                       </Button>
                     </div>
-                  )
+                  ),
                 )}
               </div>
             </div>
@@ -229,10 +253,17 @@ export default function AdminDashboard() {
 
           {activeTab === "reservations" && (
             <div className="bg-white rounded-xl border border-border p-6">
-              <h3 className="text-lg font-semibold mb-6">Recent Reservations</h3>
+              <h3 className="text-lg font-semibold mb-6">
+                Recent Reservations
+              </h3>
               <div className="space-y-4">
                 {[
-                  { user: "John Doe", pc: "PC #5", time: "14:00 - 18:00", date: "Today" },
+                  {
+                    user: "John Doe",
+                    pc: "PC #5",
+                    time: "14:00 - 18:00",
+                    date: "Today",
+                  },
                   {
                     user: "Jane Smith",
                     pc: "PC #2",
@@ -267,13 +298,15 @@ export default function AdminDashboard() {
 
           {activeTab === "reports" && (
             <div className="bg-white rounded-xl border border-border p-6">
-              <h3 className="text-lg font-semibold mb-6">
-                Reports & Issues
-              </h3>
+              <h3 className="text-lg font-semibold mb-6">Reports & Issues</h3>
               <div className="space-y-4">
                 {[
                   { pc: "PC #12", issue: "Screen flickering", status: "Open" },
-                  { pc: "PC #7", issue: "Keyboard not working", status: "Resolved" },
+                  {
+                    pc: "PC #7",
+                    issue: "Keyboard not working",
+                    status: "Resolved",
+                  },
                   { pc: "PC #3", issue: "CPU running hot", status: "Open" },
                 ].map((report, idx) => (
                   <div

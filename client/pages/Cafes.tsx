@@ -2,13 +2,7 @@ import { useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  LayoutGrid,
-  Map,
-  MapPin,
-  Star,
-  Search,
-} from "lucide-react";
+import { LayoutGrid, Map, MapPin, Star, Search } from "lucide-react";
 import { BookingModal } from "@/components/BookingModal";
 
 interface Cafe {
@@ -125,7 +119,7 @@ export default function Cafes() {
       (cafe) =>
         cafe.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         cafe.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        cafe.district.toLowerCase().includes(searchQuery.toLowerCase())
+        cafe.district.toLowerCase().includes(searchQuery.toLowerCase()),
     )
     .sort((a, b) => {
       if (ratingFilter === "highest") return b.rating - a.rating;
@@ -276,7 +270,9 @@ export default function Cafes() {
                   {/* Hourly Rate and Button */}
                   <div className="flex items-center justify-between pt-4 border-t border-border">
                     <div>
-                      <p className="text-xs text-muted-foreground">Hourly Rate</p>
+                      <p className="text-xs text-muted-foreground">
+                        Hourly Rate
+                      </p>
                       <p className="text-2xl font-bold text-primary">
                         ${cafe.hourlyRate}
                       </p>
