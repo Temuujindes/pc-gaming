@@ -208,9 +208,10 @@ export default function Index() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredCafes.map((cafe) => (
-                <div
+                <Link
                   key={cafe.id}
-                  className="group rounded-xl border border-border bg-white overflow-hidden hover:shadow-lg hover:border-primary/20 transition-all duration-300"
+                  to={`/room/${cafe.id}`}
+                  className="group rounded-xl border border-border bg-white overflow-hidden hover:shadow-lg hover:border-primary/20 transition-all duration-300 flex flex-col"
                 >
                   {/* Image */}
                   <div className="relative overflow-hidden h-48 bg-slate-200">
@@ -277,7 +278,7 @@ export default function Index() {
                       </Button>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           )}
