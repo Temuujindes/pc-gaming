@@ -9,7 +9,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Cafes from "./pages/Cafes";
 import MyReservations from "./pages/MyReservations";
-import Admin from "./pages/Admin";
+import AdminDashboard from "./pages/AdminDashboard";
+import RoomDetail from "./pages/RoomDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,8 +24,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/cafes" element={<Cafes />} />
+          <Route path="/room/:roomId" element={<RoomDetail />} />
           <Route path="/my-reservations" element={<MyReservations />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin" element={<AdminDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
